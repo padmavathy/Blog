@@ -1,0 +1,33 @@
+<h1>User Profile</h1>
+
+<table border="1px solid">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Age</th>
+    <th>Worked At</th>
+    <th>Designation</th>
+    <th>City</th>
+    <th colspan="3">Action</th>
+    
+  </tr>
+
+<%@profile.each do |profile|%>
+  <tr>
+    <td><%= profile.name %></td>
+    <td><%= profile.user.email %></td>
+    <td><%= profile.age %></td>
+    <td><%= profile.worked_at %></td>
+    <td><%= profile.designation%></td>
+    <td><%= profile.city %></td>
+    <td><%= link_to 'Show', "/admin/show/#{profile.id}", :remote=>true%></td>
+    <td><%= link_to 'Destroy', "/admin/destroy/#{profile.id}" , :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<div id="showresult">
+
+</div>
+
+

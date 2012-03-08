@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    "application" %>
+ 
+  <%= javascript_include_tag 'jquery-1.4.2.min', 'rails', 'application' %>
+  <%= csrf_meta_tags %>
+   <link href="/stylesheets/facebox.css" type="text/css" rel="stylesheet" />
+<script language="javascript" src="/assets/facebox.js"></script>
+
+</head>
+<body>
+<div id="header">
+<h1><%= link_to "Blog", root_path %></h1>
+<div id="user_bar">
+<% if logged_in? %>
+<%= link_to "New Article", new_article_path %> |
+<%= link_to "Profile", new_profile_path%>|
+<%= link_to "Edit Password", edit_user_path(current_user) %> |
+<%= link_to "Logout", logout_path %>
+<% else %>
+
+<a  onclick="show_login_facebox()">Login</a>
+
+ <div id="login_form" style="display:none;"><%=render :partial=>"sessions/login"%></div>
+ <div id="signup_form" style="display:none;"><%=render :partial=>"users/form"%></div>
+ 
+ <script>
+function show_login_facebox(){
+        jQuery.facebox({div:"#login_form"});
+       }
+</script>
+
+ <script>
+function show_signup_facebox(){
+        jQuery.facebox({div:"#signup_form"});
+       }
+</script>
+
+<a onclick="show_signup_facebox()">Signup</a>
+
+<% end %>
+</div>
+</div>
+<div id="main">
+<%= content_tag(:p, alert, :class => 'alert') if alert.present? %>
+<%= yield %>
+</div>
+<div id="footer">
+A simple blog built for the book
+<a href="http://beginningrails.com">Beginning Rails 3</a>
+</div>
+</body>
+</html>

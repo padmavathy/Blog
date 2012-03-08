@@ -1,0 +1,31 @@
+<h1>Profile</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Worked At</th>
+    <th>Designation</th>
+    <th>City</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+  <tr>
+    <td><%=  @profile.name %></td>
+    <td><%=  @profile.age %></td>
+    <td><%= @profile.worked_at %></td>
+    <td><%=  @profile.designation%></td>
+    <td><%=  @profile.city %></td>
+    <td><%= link_to 'Show', @profile %></td>
+    <td><%= link_to 'Edit', edit_profile_path(@profile) %></td>
+    <td><%= link_to 'Destroy', @profile, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+
+</table>
+
+<br />
+
+<%= link_to 'Back', '/articles' %>

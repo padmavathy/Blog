@@ -1,0 +1,26 @@
+<%=form_for @profile do |pro| %>
+<div class="field">
+<%= pro.label :Name %>
+<%= pro.text_field :name%>
+</div>
+<div class="field">
+<%= pro.label :Age %><br />
+<%= pro.text_field :age%>
+</div>
+<div class="field">
+<%= pro.label :worked_at %><br />
+<%= pro.text_field :worked_at%>
+</div>
+<div class="field">
+<%= pro.label :Designation %><br />
+<%= pro.text_field :designation%>
+</div>
+<div class="field">
+<%= pro.label :City %><br />
+<%= pro.text_field :city%>
+</div>
+<div class="action">
+<%= pro.submit "Update"%>
+</div>
+<%end%>
+<%= link_to 'Back', profiles_path %>

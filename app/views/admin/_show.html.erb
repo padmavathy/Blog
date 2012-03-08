@@ -1,0 +1,16 @@
+
+<h1>Profile details</h1>
+<b>
+Name of the Profile: </b><%= @profile.name %><br />
+<b>
+Email:</b> <%= @profile.user.email %><br />
+<b>
+Age: </b><%= @profile.age %><br />
+<b>
+Worked In: </b><%= @profile.worked_at %><br />
+<b>
+Designation:</b> <%=@profile.designation%><br />
+<b>
+Current City:</b><%= @profile.city %><br />
+
+<%= link_to 'Back', '/admin/index' %>
